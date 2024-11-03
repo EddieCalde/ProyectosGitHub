@@ -2,6 +2,10 @@
 package app_promediofinal;
 
 import java.util.Scanner;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+
 
 /**
  *
@@ -15,8 +19,8 @@ public class Info_Estudiantil {
     private String correo;
     private String cedula;
     private String numTel; 
-    private String fechaIn; 
-    private String fechaSal;
+    private LocalDate fechaIn; 
+    private LocalDate fechaSal;
             
     public Info_Estudiantil(){
         // creamos scanner para input
@@ -33,13 +37,36 @@ public class Info_Estudiantil {
         correo = input.nextLine();
         System.out.println("Ingrese su numero de telefono: ");
         numTel = input.nextLine();
+        
         System.out.println("Ingrese la fecha de ingreso y su fecha de salid de este cuatrimestre.");
-        System.out.println("Fecha de Ingreso DD/MM/AAAA: ");
+        
+        /*System.out.println("Fecha de Ingreso DD/MM/AAAA: ");
         fechaIn = input.nextLine();
         System.out.println("Fecha de Salida DD/MM/AAAA: ");
-        fechaSal = input.nextLine();
+        fechaSal = input.nextLine();*/
+        
+        /*Para capturar la fecha vamos a utilizar localdate para guardar la informacion en formato de fecha 
+        */
+        fechaIn = leerFecha(input," Fecha de ingreso (DD/MM/AAAA)");
+        fechaSal = leerFecha(input, "Fecha de salida (DD/MM/AAAA)");
+         
     }
-
+    private LocalDate leerFecha(Scanner input, String mensaje) {
+        LocalDate fecha = null;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        
+        while (fecha == null){
+        System.out.println(mensaje);
+        String fechaStr = input.nextLine();
+        try{
+            fecha = LocalDate.parse(fechaStr, formatter);}
+            catch (DateTimeParseException e) {
+                System.out.println("El formato de fecha no es correcto, intente nuevamente (Dia,Mes,Año) ");
+            
+        }
+    }
+        return fecha; /* Se utilizo un try catch para verificar que el ingreso de la fecha sea correcto*/
+    }   
     public String getNombre() {
         return nombre;
     }
@@ -80,19 +107,19 @@ public class Info_Estudiantil {
         this.numTel = numTel;
     }
 
-    public String getFechaIn() {
+    public LocalDate getFechaIn() {
         return fechaIn;
     }
 
-    public void setFechaIn(String fechaIn) {
+    public void setFechaIn(LocalDate fechaIn) {
         this.fechaIn = fechaIn;
     }
 
-    public String getFechaSal() {
+    public LocalDate getFechaSal() {
         return fechaSal;
     }
 
-    public void setFechaSal(String fechaSal) {
+    public void setFechaSal(LocalDate fechaSal) {
         this.fechaSal = fechaSal;
     }
     
