@@ -32,4 +32,7 @@ public class Notas {
     public Double getNota(String curso) {
         return notas.get(curso);
     }
+    public HashMap<String, Double> getNotas() {
+        return notas;
+    }
 }
