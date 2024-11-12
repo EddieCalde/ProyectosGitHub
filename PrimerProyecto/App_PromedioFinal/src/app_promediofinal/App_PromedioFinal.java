@@ -13,7 +13,7 @@ public class App_PromedioFinal {
         // creamos variables
         String materias;
         int cantMat; 
-        double notas, notaFin = 0, notaIn, promedio;
+        double notaFin = 0, notaIn, promedio;
 
         // Llamamos a la Clase Ingreso_Verificacion_Credenciales para crear y verificar usuario
         Ingreso_Verificacion_Credenciales credenciales = new Ingreso_Verificacion_Credenciales();
@@ -26,7 +26,21 @@ public class App_PromedioFinal {
         
         // Mostrar la información del estudiante
         
-
+        //Pedir y demostrar 
+         Ingreso_clases ingresoClases = new Ingreso_clases();
+        // llamar el metodo para el ingreso de cursos
+        ingresoClases.ingresarCursos();
+        // demostrar la clases ingresados
+        ingresoClases.mostrarCursos();
+        
+        // Pedir notas de los cursos
+        Notas notas = new Notas();
+        notas.ingresarNotas(ingresoClases);
+        notas.mostrarNotas();
+        
+        // resumen de notas con los cursos
+        ResumenClases resumen = new ResumenClases(ingresoClases, notas);
+        resumen.mostrarResumen();
         // Preguntar si quiere agregar otro estudiante
         System.out.println("¿Desea agregar datos de otro estudiante? (si/no)");
         String respuesta = input.nextLine();
