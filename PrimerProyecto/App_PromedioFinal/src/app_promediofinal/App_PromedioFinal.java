@@ -14,7 +14,8 @@ public class App_PromedioFinal {
         double promedio;
 
         // Llamamos a la Clase Ingreso_Verificacion_Credenciales para crear y verificar usuario
-        Ingreso_Verificacion_Credenciales credenciales = new Ingreso_Verificacion_Credenciales();
+        Ingreso_Verificacion_Credenciales credenciales = new Ingreso_Verificacion_Credenciales(); // utilizar un arraylist para almacenar la info
+        
         
         // ponemos una entrada al menu de la aplicacion
         System.out.println("Menu Principal");
@@ -40,7 +41,7 @@ public class App_PromedioFinal {
         ResumenClases resumen = new ResumenClases(ingresoClases, notas);
         resumen.mostrarResumen();
         
-        //instancia para el calculo del promedio
+        // instancia para el calculo del promedio
         CalcularPromedio calcularPromedio = new CalcularPromedio(notas);
             double promediofinal = calcularPromedio.calcularPromedio();
         System.out.println("El promedio de las notas es: " + promediofinal);

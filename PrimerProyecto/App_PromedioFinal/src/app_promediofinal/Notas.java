@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class Notas {
     private HashMap<String, Double> notas;
 
-    public Notas() {
+    public Notas() {  // que notas herede de info estudiantes para que sean ligados de una vez
         notas = new HashMap<>();
     }
 
