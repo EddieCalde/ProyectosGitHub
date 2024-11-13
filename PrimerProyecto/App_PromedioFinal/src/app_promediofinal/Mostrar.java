@@ -45,12 +45,12 @@ public class Mostrar {
         // Calcular el promedio
         promedio = notaFin / cantMat;
         
-        System.out.println("\nInformación del Estudiante:");
+        System.out.println("\nInformacion del Estudiante:");
         System.out.println("Nombre: " + nombre);
         System.out.println("Apellidos: " + apellidos);
         System.out.println("Cedula: " + cedula);
         System.out.println("Correo: " + correo);
-        System.out.println("Número de Teléfono: " + numTel);
+        System.out.println("Numero de Telefono: " + numTel);
         System.out.println("Fecha de Ingreso: " + fechaIn);
         System.out.println("Fecha de Salida: " + fechaSal);
         System.out.println("Cantidad de Materias: " + cantMat);

@@ -53,7 +53,7 @@ public class Info_Estudiantil {
     }
     private LocalDate leerFecha(Scanner input, String mensaje) {
         LocalDate fecha = null;
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("DD/MM/YYYY");
         
         while (fecha == null){
         System.out.println(mensaje);
@@ -61,7 +61,7 @@ public class Info_Estudiantil {
         try{
             fecha = LocalDate.parse(fechaStr, formatter);}
             catch (DateTimeParseException e) {
-                System.out.println("El formato de fecha no es correcto, intente nuevamente (Dia,Mes,Año) ");
+                System.out.println("El formato de fecha no es correcto, intente nuevamente (Dia,Mes,Ano) ");
             
         }
     }

@@ -12,11 +12,11 @@ public class Ingreso_Verificacion_Credenciales {
     //Se crearon mensajes constantes para llamar luego
     private static final String BIENVENIDO = "Bienvenido a la Aplicacion de Promedio Final y Notas";
     private static final String CREAR_USUARIO = "Por Favor crear su Usuario: ";
-    private static final String CREAR_CONTRASENA = "Por Favor crear una contraseña:";
+    private static final String CREAR_CONTRASENA = "Por Favor crear una contrasena:";
     private static final String INGRESAR_USUARIO = "Ingrese Usuario: ";
-    private static final String INGRESE_CONTRASENA = "Ingrese Contraseña: ";
-    private static final String USUARIO_CONTRASENA_VALIDOS = "Usuario y contraseña aceptados";
-    private static final String USUARIO_CONTRASENA_INVALIDOS = "Usuario o contraseña no aceptados";
+    private static final String INGRESE_CONTRASENA = "Ingrese Contrasena: ";
+    private static final String USUARIO_CONTRASENA_VALIDOS = "Usuario y contrasena aceptados";
+    private static final String USUARIO_CONTRASENA_INVALIDOS = "Usuario o contrasena no aceptados";
     private static final String INTENTOS_RESTANTES = "Te quedan %d intentos de 3";
     private static final String FIN_INTENTOS = "Fin de intentos, Usuario bloqueado";
 

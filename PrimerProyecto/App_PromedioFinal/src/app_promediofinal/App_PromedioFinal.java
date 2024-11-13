@@ -22,8 +22,6 @@ public class App_PromedioFinal {
         // pedimos info de estudiante 
         Info_Estudiantil info = new Info_Estudiantil();
         
-        // Mostrar la información del estudiante
-        
         //Pedir y demostrar 
          Ingreso_clases ingresoClases = new Ingreso_clases();
         // llamar el metodo para el ingreso de cursos
@@ -36,6 +34,8 @@ public class App_PromedioFinal {
         notas.ingresarNotas(ingresoClases);
         notas.mostrarNotas();
         
+        // Mostrar la información del estudiante con notas y cursos
+        
         // resumen de notas con los cursos
         ResumenClases resumen = new ResumenClases(ingresoClases, notas);
         resumen.mostrarResumen();
@@ -43,8 +43,7 @@ public class App_PromedioFinal {
         //instancia para el calculo del promedio
         CalcularPromedio calcularPromedio = new CalcularPromedio(notas);
             double promediofinal = calcularPromedio.calcularPromedio();
-        System.out.println("El promedio de las notas es: " + promediofinal);   
-        
+        System.out.println("El promedio de las notas es: " + promediofinal);
         
         
         boolean agregarMaterias = true;
