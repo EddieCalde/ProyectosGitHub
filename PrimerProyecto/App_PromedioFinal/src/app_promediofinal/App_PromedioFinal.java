@@ -11,9 +11,7 @@ public class App_PromedioFinal {
         boolean continuar = true;
          while (continuar) { // este while lo que hace es que al final del programa consulta si quiere agregar datos de otro estudiante si la respuesta es no finaliza
         // creamos variables
-        String materias;
-        int cantMat; 
-        double notaFin = 0, notaIn, promedio;
+        double promedio;
 
         // Llamamos a la Clase Ingreso_Verificacion_Credenciales para crear y verificar usuario
         Ingreso_Verificacion_Credenciales credenciales = new Ingreso_Verificacion_Credenciales();
