@@ -35,8 +35,6 @@ public class App_PromedioFinal {
         notas.ingresarNotas(ingresoClases);
         notas.mostrarNotas();
         
-        // Mostrar la información del estudiante con notas y cursos
-        
         // resumen de notas con los cursos
         ResumenClases resumen = new ResumenClases(ingresoClases, notas);
         resumen.mostrarResumen();
