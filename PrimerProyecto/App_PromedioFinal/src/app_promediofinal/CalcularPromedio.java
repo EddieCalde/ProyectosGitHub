@@ -1,9 +1,8 @@
-
-    package app_promediofinal;
+package app_promediofinal;
 
 public class CalcularPromedio {
 
-    private Notas notas;
+    public Notas notas;
 
     public CalcularPromedio(Notas notas) {
         this.notas = notas;
