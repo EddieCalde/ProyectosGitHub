@@ -33,11 +33,11 @@ public class App_PromedioFinal {
             System.out.println("El promedio final es: " + promedioFinal);
 
             // Preguntar si desea agregar otro estudiante
-            System.out.println("¿Desea agregar datos de otro estudiante? (si/no)");
+            System.out.println("Desea agregar datos de otro estudiante? (si/no)");
             String respuestaFinal = input.nextLine().trim().toLowerCase();
             continuar = respuestaFinal.equals("si");
         }
 
-        System.out.println("Gracias por usar la aplicación de promedio. ¡Hasta luego!");
+        System.out.println("Gracias por usar la aplicaci0n de promedio. ¡Hasta luego!");
     }
 }

@@ -53,7 +53,7 @@ public class Info_Estudiantil {
             try {
                 fecha = LocalDate.parse(fechaStr, formatter);
             } catch (DateTimeParseException e) {
-                System.out.println("El formato de fecha no es correcto, intente nuevamente (Dia, Mes, Año)");
+                System.out.println("El formato de fecha no es correcto, intente nuevamente (Dia, Mes, Ano)");
             }
         }
         return fecha;
