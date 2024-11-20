@@ -36,7 +36,7 @@ public class App_PromedioFinal {
             System.out.println("Desea agregar datos de otro estudiante? (si/no)");
             String respuestaFinal = input.nextLine().trim().toLowerCase();
             continuar = respuestaFinal.equals("si");
-        }
+        } 
 
         System.out.println("Gracias por usar la aplicaci0n de promedio. ¡Hasta luego!");
     }
