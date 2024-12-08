@@ -4,6 +4,7 @@
  */
 package paqueteVisual;
 
+import controlador.ControladorLogin;
 import javax.swing.JOptionPane;
 
 /**
@@ -12,11 +13,15 @@ import javax.swing.JOptionPane;
  */
 public class IngresoCuenta extends javax.swing.JFrame {
 
-    /**
-     * Creates new form IngresoCuenta
-     */
+    ControladorLogin controlador;
     public IngresoCuenta() {
         initComponents();
+        setLocationRelativeTo(this);
+        this.controlador = new ControladorLogin();   
+    }
+
+    public ControladorLogin getControlador() {
+        return controlador;
     }
 
     /**
@@ -35,7 +40,7 @@ public class IngresoCuenta extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         txtContra = new javax.swing.JPasswordField();
         btnIniciar = new javax.swing.JButton();
-        txtUsuario = new javax.swing.JTextField();
+        txtUser = new javax.swing.JTextField();
         btnRegistro = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,14 +80,14 @@ public class IngresoCuenta extends javax.swing.JFrame {
             }
         });
 
-        btnIniciar.setText("Ingreso");
+        btnIniciar.setText("Ingresar");
         btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIniciarActionPerformed(evt);
             }
         });
 
-        btnRegistro.setText("REGISTRO");
+        btnRegistro.setText("REGISTRAR");
         btnRegistro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRegistroActionPerformed(evt);
@@ -99,13 +104,17 @@ public class IngresoCuenta extends javax.swing.JFrame {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(50, 50, 50)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnIniciar)
-                    .addComponent(txtContra)
-                    .addComponent(txtUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnRegistro)
-                .addGap(43, 43, 43))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                            .addComponent(txtContra)
+                            .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE))
+                        .addGap(43, 43, 43))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnIniciar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnRegistro)
+                        .addGap(14, 14, 14))))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -114,7 +123,7 @@ public class IngresoCuenta extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -147,14 +156,23 @@ public class IngresoCuenta extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
-        String username = txtUsuario.getText();
-        String password = new String (txtContra.getPassword());
-        if(username.equals("usuario")&& password.equals("contraseña")){
-            JOptionPane.showMessageDialog(this, "Inicio de sesion exitoso");
-            
-        }else{
-            JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrecto");
-        }
+      String user = txtUser.getText();
+      String contra = txtContra.getText();
+      Persona aux = controlador.buscarPersona(user);
+      if (aux != null) {
+          if (aux.getContrasena().equals(contra)){
+              IngresoMateriasYNotas ventana = new IngresoMateriasYNotas(this, aux);
+              ventana.setVisible(true);
+              this.dispose();       
+              
+          }else{
+              JOptionPane.showMessageDialog(null, "La contraseña es incorrecta");
+          }
+              
+              
+      }else{
+          JOptionPane.showMessageDialog(null, "Este usuario no se encuentra ");
+      }
             
         
         
@@ -165,10 +183,9 @@ public class IngresoCuenta extends javax.swing.JFrame {
     }//GEN-LAST:event_txtContraActionPerformed
 
     private void btnRegistroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegistroActionPerformed
-    RegistroCuenta ventanaRegistro = new RegistroCuenta();
-    ventanaRegistro.setVisible(true);
-    
-            
+    RegistroCuenta ventana = new RegistroCuenta(this);
+    ventana.setVisible(true);
+    this.dispose();
     }//GEN-LAST:event_btnRegistroActionPerformed
 
     /**
@@ -215,6 +232,6 @@ public class IngresoCuenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField txtContra;
-    private javax.swing.JTextField txtUsuario;
+    private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
