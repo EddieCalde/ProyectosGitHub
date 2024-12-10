@@ -9,7 +9,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author XPC
+ * @author X
  */
 public class IngresoCuenta extends javax.swing.JFrame {
 
