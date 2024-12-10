@@ -31,6 +31,10 @@ public class IngresoMateriasYNotas extends javax.swing.JFrame {
         registros = new ArrayList<>();
     }
 
+    IngresoMateriasYNotas() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -318,6 +322,8 @@ public class IngresoMateriasYNotas extends javax.swing.JFrame {
     }//GEN-LAST:event_BCancelarActionPerformed
 
     private void bPromedioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bPromedioActionPerformed
+
+        
         if (registros.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No hay registros para calcular el promedio.");
             return;
@@ -325,13 +331,19 @@ public class IngresoMateriasYNotas extends javax.swing.JFrame {
 
         double sumaTotal = 0;
         int cantidadNotas = 0;
+        double promedioTotal = 0;
 
         for (RegistroEstudiante registro : registros) {
             for (Double nota : registro.notas) {
                 sumaTotal += nota;
                 cantidadNotas++;
+                promedioTotal = sumaTotal / cantidadNotas;
             }
         }
+        
+        Promedio dem = new Promedio();
+        dem.setVisible(true);
+        dem.jLabel3.setText(String.valueOf(promedioTotal));
     }//GEN-LAST:event_bPromedioActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
